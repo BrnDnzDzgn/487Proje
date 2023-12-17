@@ -29,7 +29,6 @@ ArrayAdapter<Themes?>(context, R.layout.spinner_item_layout, spinnerItemValues!!
         val selectedItem = getItem(position)
         themeName.text = selectedItem?.name ?: ""
 
-
         return view
     }
 }
