@@ -6,10 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.a487_project.Activities.MainActivity
 import com.example.a487_project.R
-import java.util.Locale.Category
+import com.example.a487_project.Classes.Category
 
 class CustomRecyclerViewAdapter(private val context: Context, private val recyclerItemValues: ArrayList<Category>)
     :
@@ -57,4 +58,9 @@ class CustomRecyclerViewAdapter(private val context: Context, private val recycl
                 }
             }
 
+
+    fun setHorizontalLayoutManager(recyclerView: RecyclerView) {
+        val layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        recyclerView.layoutManager = layoutManager
+    }
 }
