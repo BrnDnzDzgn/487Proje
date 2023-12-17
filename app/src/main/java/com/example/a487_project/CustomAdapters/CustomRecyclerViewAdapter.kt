@@ -17,7 +17,7 @@ class CustomRecyclerViewAdapter(private val context: Context, private val recycl
     override fun onCreateViewHolder(
         viewGroup: ViewGroup,
         i: Int
-    ): CustomRecyclerViewAdapter.CustomRecyclerViewItemHolder {
+    ): CustomRecyclerViewItemHolder {
         val inflator = LayoutInflater.from(context)
         val itemView = inflator.inflate(R.layout.recycler_item, viewGroup, false)
         return CustomRecyclerViewItemHolder(itemView)
@@ -53,7 +53,7 @@ class CustomRecyclerViewAdapter(private val context: Context, private val recycl
                 var tv: TextView
 
                 init{
-                    tv = itemView.findViewById(R.id.tvItemCategoryName)
+                    tv = itemView.findViewById(R.id.textViewItem)
                 }
             }
 

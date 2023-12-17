@@ -4,7 +4,7 @@ import android.os.Parcel
 import android.os.Parcelable
 
 class Themes() : Parcelable {
-    lateinit var name: String
+    var name: String = ""
     var imgId = 0
 
     constructor(parcel: Parcel) : this() {
