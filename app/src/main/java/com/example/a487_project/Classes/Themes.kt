@@ -1,27 +1,45 @@
 package com.example.a487_project.Classes
 
-class Themes {
-    private var name: String? = null
-    private var imgId = 0
+import android.os.Parcel
+import android.os.Parcelable
 
-    constructor(name: String?, imgId: Int) {
-        this.name = name
+class Themes() : Parcelable {
+    lateinit var name: String
+    var imgId = 0
+
+    constructor(parcel: Parcel) : this() {
+        name = parcel.readString().toString()
+        imgId = parcel.readInt()
+    }
+
+    constructor(name: String, imgId: Int):this(){
+        this.name=name
         this.imgId = imgId
     }
 
-    fun getName(): String? {
-        return name
+    override fun toString(): String {
+        return """
+            name='$name', imgId='$imgId'
+        """.trimIndent()
     }
 
-    fun setName(name: String?) {
-        this.name = name
+    override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeString(name)
+        parcel.writeInt(imgId)
     }
 
-    fun getImgId(): Int {
-        return imgId
+    override fun describeContents(): Int {
+        return 0
     }
 
-    fun setImgId(imgId: Int) {
-        this.imgId = imgId
+    companion object CREATOR : Parcelable.Creator<Themes> {
+        override fun createFromParcel(parcel: Parcel): Themes {
+            return Themes(parcel)
+        }
+
+        override fun newArray(size: Int): Array<Themes?> {
+            return arrayOfNulls(size)
+        }
     }
+
 }

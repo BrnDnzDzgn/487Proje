@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.Spinner
 import com.example.a487_project.Classes.CategorySys
+import com.example.a487_project.Classes.ThemeSys
 import com.example.a487_project.Classes.Themes
 import com.example.a487_project.CustomSpinnerAdapter
 import com.example.a487_project.R
@@ -43,17 +44,20 @@ class MainActivity : AppCompatActivity() { //Boran
                 id: Long
             ) {
                 pos = position
-                val selectedTheme = CategorySys.categoryItems.get(pos)
-                binding.imageView.setImageResource(getImageResourceFor)
+                val selectedTheme = ThemeSys.themesList.get(pos)
+                binding.imageView.setImageResource(getImageResourceForTheme(selectedTheme))
             }
             override fun onNothingSelected(parent: AdapterView<*>?){}
         })
 
     }
 
-    private fun getImageResourceForTheme(theme: Theme): Int{
-        return when (theme.name){
-            "fantasy" -> R.drawable.
+    private fun getImageResourceForTheme(themes: Themes): Int{
+        return when (themes.name){
+            "fantasy" -> R.drawable.fantasy
+            "gothic" -> R.drawable.gothic
+            "office" -> R.drawable.office
+            else -> R.drawable.wp1
         }
     }
 
