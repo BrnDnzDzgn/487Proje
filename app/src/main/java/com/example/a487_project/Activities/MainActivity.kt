@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity() { //Boran
             "fantasy" -> R.drawable.fantasy
             "gothic" -> R.drawable.gothic
             "office" -> R.drawable.office
-            else -> R.drawable.wp1
+            else -> R.drawable.ic_launcher_foreground
         }
     }
 
