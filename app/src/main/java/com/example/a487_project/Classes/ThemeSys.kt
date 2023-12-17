@@ -10,9 +10,9 @@ class ThemeSys {
             themesList.clear()
             Collections.addAll(
                 themesList,
-                Themes("gothic", R.drawable.gothic),
-                Themes("fantasy", R.drawable.fantasy),
-                Themes("office", R.drawable.office)
+                Themes("gothic", R.drawable.gothic_icon),
+                Themes("fantasy", R.drawable.fantasy_icon),
+                Themes("office", R.drawable.office_icon)
             )
         }
     }
