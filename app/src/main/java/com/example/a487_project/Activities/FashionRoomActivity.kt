@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.a487_project.databinding.ActivityFashionRoomBinding
 import androidx.recyclerview.widget.RecyclerView
+import com.example.a487_project.R
 import com.example.a487_project.CustomAdapters.CustomRecyclerViewAdapter
+import com.example.a487_project.Classes.Category
 
 class FashionRoomActivity : AppCompatActivity() { //Kamila
     lateinit var binding: ActivityFashionRoomBinding

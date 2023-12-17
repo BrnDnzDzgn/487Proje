@@ -24,10 +24,11 @@ ArrayAdapter<Themes?>(context, R.layout.spinner_item_layout, spinnerItemValues!!
         val inflator = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val view: View = inflator.inflate(R.layout.spinner_item_layout, parent, false)
 
-        val theme_name = view.findViewById<TextView>(R.id.spinnerItemTextView)
+        val themeName = view.findViewById<TextView>(R.id.spinnerItemTextView)
 
-        val selectedItem = spinnerItemValues!!get(position)
-        theme_name.text = selectedItem.name
+        val selectedItem = getItem(position)
+        themeName.text = selectedItem?.name ?: ""
+
 
         return view
     }
