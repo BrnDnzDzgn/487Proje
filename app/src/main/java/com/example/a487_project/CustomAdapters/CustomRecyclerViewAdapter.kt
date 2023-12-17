@@ -1,4 +1,4 @@
-package com.example.a487_project.RecyclerViewPackage //Boran
+package com.example.a487_project.CustomAdapters //Boran
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -8,7 +8,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.a487_project.Activities.MainActivity
 import com.example.a487_project.R
 import com.example.a487_project.Classes.Category
 
