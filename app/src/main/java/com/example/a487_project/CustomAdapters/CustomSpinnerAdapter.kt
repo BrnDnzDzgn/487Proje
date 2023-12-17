@@ -1,18 +1,16 @@
-package com.example.a487_project
+package com.example.a487_project.CustomAdapters
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import android.widget.ImageView
-import android.widget.Spinner
 import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.a487_project.Classes.Themes
+import com.example.a487_project.R
 
 class CustomSpinnerAdapter(var context: Context, var spinnerItemValues: ArrayList<Themes>):
-ArrayAdapter<Themes>(context, R.layout.spinner_item_layout, spinnerItemValues) {
+ArrayAdapter<Themes?>(context, R.layout.spinner_item_layout, spinnerItemValues!! as List<Themes>) {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View{
         return getCustomView(position, convertView, parent)
     }
@@ -21,12 +19,15 @@ ArrayAdapter<Themes>(context, R.layout.spinner_item_layout, spinnerItemValues) {
         return getCustomView(position, convertView, parent)
     }
 
+
     fun getCustomView(position: Int, convertView: View?, parent: ViewGroup): View{
         val inflator = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val view: View = inflator.inflate(R.layout.spinner_item_layout, parent, false)
 
-        val constraintLayout = view.findViewById<ConstraintLayout>(R.id.itemConstraintLayout)
-        val imgItem = view.findViewById<ImageView>(R.id.imgItemSocial)
+        val theme_name = view.findViewById<TextView>(R.id.spinnerItemTextView)
+
+        val selectedItem = spinnerItemValues!!get(position)
+        theme_name.text = selectedItem.name
 
         return view
     }
