@@ -14,18 +14,19 @@
         android:layout_marginBottom="3dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.499"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.865"
+        app:layout_constraintVertical_bias="0.8"
         tools:srcCompat="@drawable/back6" />
 
     <Button
         android:id="@+id/goFashion"
-        android:layout_width="212dp"
-        android:layout_height="65dp"
-        android:layout_marginEnd="180dp"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/button"
+        android:layout_width="207dp"
+        android:layout_height="110dp"
+        android:layout_marginEnd="188dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/button_style3"
         android:fontFamily="@font/alfa_slab_one"
         android:text="@string/main_to_fashionRoom"
         android:textColor="@android:color/black"
@@ -35,11 +36,11 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="200dp"
-        android:layout_height="65dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="181dp"
+        android:layout_height="111dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="16dp"
-        android:background="@drawable/button"
+        android:background="@drawable/button_style3"
         android:fontFamily="@font/alfa_slab_one"
         android:text="@string/leaderBoard"
         android:textColor="@android:color/black"
@@ -49,17 +50,17 @@
 
     <Button
         android:id="@+id/button5"
-        android:layout_width="126dp"
-        android:layout_height="65dp"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/button"
+        android:layout_width="140dp"
+        android:layout_height="110dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/button_style3"
         android:fontFamily="@font/alfa_slab_one"
         android:text="Judge"
         android:textColor="@android:color/black"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.943"
+        app:layout_constraintHorizontal_bias="0.903"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Spinner
@@ -67,9 +68,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="102dp"
+        android:layout_marginTop="148dp"
         android:layout_marginEnd="1dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -81,7 +83,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner"
-        app:layout_constraintVertical_bias="0.748"
+        app:layout_constraintVertical_bias="0.636"
         tools:srcCompat="@tools:sample/avatars" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
