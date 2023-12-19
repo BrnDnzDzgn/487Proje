@@ -22,10 +22,10 @@
 
     <Button
         android:id="@+id/goFashion"
-        android:layout_width="207dp"
+        android:layout_width="181dp"
         android:layout_height="110dp"
-        android:layout_marginEnd="188dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginEnd="200dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/button_style3"
         android:fontFamily="@font/alfa_slab_one"
         android:text="@string/main_to_fashionRoom"
@@ -50,14 +50,14 @@
         android:id="@+id/button5"
         android:layout_width="140dp"
         android:layout_height="110dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/button_style3"
         android:fontFamily="@font/alfa_slab_one"
         android:text="Judge"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.903"
+        app:layout_constraintHorizontal_bias="0.881"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Spinner
