@@ -36,13 +36,15 @@
     <Button
         android:id="@+id/button"
         android:layout_width="181dp"
-        android:layout_height="110dp"
+        android:layout_height="0dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="200dp"
+        android:layout_marginBottom="23dp"
         android:background="@drawable/button_style3"
         android:fontFamily="@font/alfa_slab_one"
         android:text="@string/leaderBoard"
         android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -88,19 +90,24 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="7dp"
+        android:layout_marginBottom="35dp"
         android:fontFamily="@font/alfa_slab_one"
         android:text="MyFashionDarling"
         android:textSize="34sp"
-        tools:layout_editor_absoluteX="37dp"
-        tools:layout_editor_absoluteY="149dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintStart_toStartOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="471dp"
         android:fontFamily="@font/alfa_slab_one"
         android:text="Choose a theme"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="238dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/spinner"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
