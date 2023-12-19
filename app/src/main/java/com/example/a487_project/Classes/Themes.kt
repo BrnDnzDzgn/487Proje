@@ -3,7 +3,7 @@ package com.example.a487_project.Classes
 import android.os.Parcel
 import android.os.Parcelable
 
-class Themes() : Parcelable {
+class Themes() : Parcelable { //Boran
     var name: String = ""
     var imgId = 0
 

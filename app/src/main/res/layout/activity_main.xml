@@ -37,8 +37,8 @@
         android:id="@+id/button"
         android:layout_width="181dp"
         android:layout_height="110dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="200dp"
         android:background="@drawable/button_style3"
         android:fontFamily="@font/alfa_slab_one"
         android:text="@string/leaderBoard"
@@ -62,24 +62,45 @@
 
     <Spinner
         android:id="@+id/spinner"
-        android:layout_width="373dp"
-        android:layout_height="34dp"
+        android:layout_width="320dp"
+        android:layout_height="31dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="144dp"
+        android:layout_marginTop="260dp"
         android:layout_marginEnd="1dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.325"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         app:layout_constraintBottom_toTopOf="@+id/goFashion"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner"
-        app:layout_constraintVertical_bias="0.636"
+        app:layout_constraintVertical_bias="0.475"
         tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/alfa_slab_one"
+        android:text="MyFashionDarling"
+        android:textSize="34sp"
+        tools:layout_editor_absoluteX="37dp"
+        tools:layout_editor_absoluteY="149dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/alfa_slab_one"
+        android:text="Choose a theme"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="238dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

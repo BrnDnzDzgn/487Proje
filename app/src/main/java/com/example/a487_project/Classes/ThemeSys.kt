@@ -4,7 +4,7 @@ import com.example.a487_project.R
 import java.util.Collections
 
 class ThemeSys {
-    companion object {
+    companion object { //Boran
         var themesList = ArrayList<Themes>()
         fun prepare(){
             themesList.clear()
