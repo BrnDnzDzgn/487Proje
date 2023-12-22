@@ -1,17 +1,16 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:background="#FFFFFF"
-    android:padding="8dp">
-<TextView
-    android:id="@+id/textViewItem"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:textColor="#000000"
-    android:fontFamily="@font/rainyhearts"
-    android:textSize="16.57sp"
-    android:layout_gravity="center_horizontal"/>
-
-    </LinearLayout>
+<Button xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/buttonItem"
+    android:layout_width="75dp"
+    android:layout_height="75dp"
+    android:layout_marginHorizontal="4dp"
+    android:background="@drawable/button_style3"
+    android:backgroundTint="#FFFFFF"
+    android:foreground="?attr/selectableItemBackgroundBorderless"
+    android:gravity="center"
+    android:includeFontPadding="false"
+    android:minWidth="0dp"
+    android:minHeight="0dp"
+    android:padding="4dp"
+    android:textColor="#FFFFFF"
+    android:textSize="12sp"
+    android:layout_marginBottom="0dp"/>
