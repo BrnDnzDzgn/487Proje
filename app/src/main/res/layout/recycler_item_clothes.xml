@@ -1,0 +1,19 @@
+<!-- item_image.xml -->
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="64dp"
+    android:layout_height="64dp"
+    android:layout_marginEnd="8dp"
+    android:layout_gravity="center"
+    android:background="#800080">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:contentDescription="@drawable/top1"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:scaleType="centerInside"/>
+
+</androidx.cardview.widget.CardView>
