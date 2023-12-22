@@ -1,17 +1,18 @@
 package com.example.a487_project.Activities
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.a487_project.databinding.ActivityFashionRoomBinding
 import androidx.recyclerview.widget.RecyclerView
-import com.example.a487_project.R
-import com.example.a487_project.CustomAdapters.CustomRecyclerViewAdapter
 import com.example.a487_project.Classes.Category
 import com.example.a487_project.Classes.ClothingItemKami
-import com.example.a487_project.CustomAdapters.ClothingListAdapther
 import com.example.a487_project.Classes.Themes
+import com.example.a487_project.CustomAdapters.ClothingListAdapther
+import com.example.a487_project.CustomAdapters.CustomRecyclerViewAdapter
+import com.example.a487_project.R
+import com.example.a487_project.databinding.ActivityFashionRoomBinding
 
 class FashionRoomActivity : AppCompatActivity() { //Kamila
     lateinit var binding: ActivityFashionRoomBinding
@@ -28,6 +29,8 @@ class FashionRoomActivity : AppCompatActivity() { //Kamila
         setContentView(binding.root)
 
         recyclerView = binding.recyclerView
+        // Set RecyclerView optimization
+        recyclerView.setHasFixedSize(true);
 
 
         categoryList = arrayListOf(
@@ -47,27 +50,19 @@ class FashionRoomActivity : AppCompatActivity() { //Kamila
         // Recycle View Clothings
 
         val recyclerView2: RecyclerView = findViewById(R.id.recyclerViewClothes)
+        // Set RecyclerView optimization
+        recyclerView2.setHasFixedSize(true);
         recyclerView2.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         val items = mutableListOf(
-            ClothingItemKami(1, "Red", "top1"),
-            ClothingItemKami(1, "Blue", "top2"),
+            ClothingItemKami(4, "Red", "top1"),
+            ClothingItemKami(4, "Blue", "top2"),
             // Add more items as needed
         )
         val adapter2 = ClothingListAdapther(items)
         recyclerView2.adapter = adapter2
 
-        adapter2.setOnItemClickListener { position ->
-            val selectedItem = items[position]
 
-            // Assuming you have ImageView IDs like layer_item_1, layer_item_2, etc.
-            val layerImageViewId = resources.getIdentifier("layer_${selectedItem.layer}", "id", packageName)
-            val layerImageView = findViewById<ImageView>(layerImageViewId)
 
-            // Update the image based on the selected item's imageName
-            val imageName = selectedItem.imageName
-            val imageResourceId = resources.getIdentifier(imageName, "drawable", packageName)
-            layerImageView.setImageResource(imageResourceId)
-        }
 
         // to retrieve the selected theme information from the intent
         val selectedTheme = intent.getParcelableExtra<Themes>("SELECTED_THEME")

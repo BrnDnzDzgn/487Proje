@@ -2,10 +2,12 @@ package com.example.a487_project.CustomAdapters
 
 
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.a487_project.Classes.ClothingItemKami
 import com.example.a487_project.R
@@ -40,8 +42,19 @@ class ClothingListAdapther(private val items: List<ClothingItemKami>) :
         holder.imageView.setImageResource(resourceId)
 
 
-        holder.itemView.setOnClickListener {
+        holder.imageView.setOnClickListener {
             onItemClick?.invoke(position)
+
+            // Your custom logic for handling ImageView clicks here
+            val selectedItem = items[position]
+            val imageViewId = "layer" + selectedItem.layer
+            val imageView: ImageView? = holder.itemView.rootView.findViewById(
+                holder.itemView.resources.getIdentifier(imageViewId, "id", holder.itemView.context.packageName)
+            )
+
+            imageView?.setImageResource(resourceId)
+
+
         }
     }
 
