@@ -33,15 +33,12 @@ class MainActivity : AppCompatActivity() { //Boran
         spinner = findViewById<Spinner>(R.id.spinner)
 
         binding.goFashion.setOnClickListener {
+            val selectedTheme = themeItems[pos]
             val switchActivityIntent = Intent(this, FashionRoomActivity::class.java)
+            switchActivityIntent.putExtra("SELECTED_THEME", selectedTheme)
             startActivity(switchActivityIntent)
         }
 
-
-        binding.goFashion.setOnClickListener {
-            val switchActivityIntent = Intent(this, FashionRoomActivity::class.java)
-            startActivity(switchActivityIntent)
-        }
 
         val adapter = CustomSpinnerAdapter(this, themeItems)
         spinner.setAdapter(adapter)

@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.a487_project.R
 import com.example.a487_project.CustomAdapters.CustomRecyclerViewAdapter
 import com.example.a487_project.Classes.Category
+import com.example.a487_project.Classes.Themes
 
 class FashionRoomActivity : AppCompatActivity() { //Kamila
     lateinit var binding: ActivityFashionRoomBinding
@@ -18,6 +19,13 @@ class FashionRoomActivity : AppCompatActivity() { //Kamila
 
         binding=ActivityFashionRoomBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // to retrieve the selected theme information from the intent
+        val selectedTheme = intent.getParcelableExtra<Themes>("SELECTED_THEME")
+
+        //use these
+        val themeName = selectedTheme?.name
+        val themeImgId = selectedTheme?.imgId
 
         recyclerView = binding.recyclerView
 
