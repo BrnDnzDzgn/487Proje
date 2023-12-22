@@ -1,3 +1,3 @@
 package com.example.a487_project.Classes
 
-class Category(var name: String) //Boran
+data class Category(val category: String, val itemCount: Int) //Boran

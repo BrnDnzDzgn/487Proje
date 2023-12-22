@@ -10,12 +10,14 @@ object  CategorySys {
         categoryItems = ArrayList()
         Collections.addAll<Category>(
             categoryItems,
-            Category("Accessories"),
-            Category("Dresses"),
-            Category("Hairs"),
-            Category("Shoes"),
-            Category("Tops"),
-            Category("Face") //eyes, lips, makeup
+            Category("Accessory", 10),
+            Category("Dress", 5),
+            Category("Hair front", 5),
+            Category("Hair back", 5),
+            Category("Shoes", 5),
+            Category("Top", 5),
+            Category("Bottom", 5),
+            Category("Face", 1) //eyes, lips, makeup
 
         )
     }

@@ -2,18 +2,21 @@ package com.example.a487_project.CustomAdapters
 
 
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.a487_project.Classes.ClothingItemKami
 import com.example.a487_project.R
 
-class ClothingListAdapther(private val items: List<ClothingItemKami>) :
+class ClothingListAdapther(private var items: MutableList<ClothingItemKami>) :
     RecyclerView.Adapter<ClothingListAdapther.ViewHolder>() {
 
     private var onItemClick: ((Int) -> Unit)? = null
+
 
     fun setOnItemClickListener(listener: (Int) -> Unit) {
         onItemClick = listener
@@ -40,9 +43,38 @@ class ClothingListAdapther(private val items: List<ClothingItemKami>) :
         holder.imageView.setImageResource(resourceId)
 
 
-        holder.itemView.setOnClickListener {
+        holder.imageView.setOnClickListener {
             onItemClick?.invoke(position)
+
+            if(item.Category == "Dress"){
+                val imageViewLayer5: ImageView? = holder.itemView.rootView.findViewById(R.id.layer5)
+                imageViewLayer5?.setImageResource(android.R.color.transparent)
+            }
+
+            // Your custom logic for handling ImageView clicks here
+            val selectedItem = items[position]
+            val imageViewId = "layer" + selectedItem.layer
+            val imageView: ImageView? = holder.itemView.rootView.findViewById(
+                holder.itemView.resources.getIdentifier(imageViewId, "id", holder.itemView.context.packageName)
+            )
+
+            imageView?.setImageResource(resourceId)
+
+
         }
+    }
+
+
+
+    fun updateData(newItems: List<ClothingItemKami>, categoryFilter: String? = null) {
+        if (categoryFilter.isNullOrBlank()) {
+            items.addAll(newItems)
+        } else {
+            // Filter items based on the category
+            items.clear()
+            items.addAll(newItems.filter { it.Category == categoryFilter })
+        }
+        notifyDataSetChanged()
     }
 
     override fun getItemCount(): Int {

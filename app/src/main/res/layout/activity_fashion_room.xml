@@ -35,18 +35,7 @@
         app:layout_constraintTop_toBottomOf="@+id/recyclerView"
         app:layout_constraintVertical_bias="0.0" />
 
-    <ImageView
-        android:id="@+id/layer5"
-        android:layout_width="550dp"
-        android:layout_height="550dp"
-        android:src="@android:color/transparent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.553"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.088" />
+
 
     <ImageView
         android:id="@+id/layer0"
@@ -65,7 +54,7 @@
         android:id="@+id/layer1"
         android:layout_width="550dp"
         android:layout_height="550dp"
-        android:src="@drawable/hair5"
+        android:src="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -78,7 +67,7 @@
         android:id="@+id/layer2"
         android:layout_width="550dp"
         android:layout_height="550dp"
-        android:src="@drawable/bottom2"
+        android:src="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -91,7 +80,7 @@
         android:id="@+id/layer3"
         android:layout_width="550dp"
         android:layout_height="550dp"
-        android:src="@drawable/shoes3"
+        android:src="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -104,7 +93,33 @@
         android:id="@+id/layer4"
         android:layout_width="550dp"
         android:layout_height="550dp"
-        android:src="@drawable/top5"
+        android:src="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.553"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.088" />
+
+    <ImageView
+        android:id="@+id/layer5"
+        android:layout_width="550dp"
+        android:layout_height="550dp"
+        android:src="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.553"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.088" />
+
+    <ImageView
+        android:id="@+id/layer6"
+        android:layout_width="550dp"
+        android:layout_height="550dp"
+        android:src="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
