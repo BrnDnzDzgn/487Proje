@@ -4,7 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.FashionRoomActivity">
+    tools:context=".Activities.FashionRoomActivity"
+    android:background="@drawable/office"
+    android:id="@+id/fashionRoomID"
+    >
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -143,26 +146,55 @@
 
     <Button
         android:id="@+id/goMain"
-        android:layout_width="102dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="308dp"
-        android:text="@string/fashionRomm_to_main"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="94dp"
+        android:layout_height="81dp"
+        android:layout_marginHorizontal="4dp"
+        android:background="@drawable/button_style3"
+        android:backgroundTint="#FFFFFF"
         android:fontFamily="@font/rainyhearts"
-        android:textSize="16.57sp"/>
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:minWidth="0dp"
+        android:minHeight="0dp"
+        android:padding="4dp"
+        android:text="Go Back"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/Random"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="4dp"
+        android:layout_width="94dp"
+        android:layout_height="81dp"
+        android:layout_marginHorizontal="4dp"
+        android:background="@drawable/button_style3"
+        android:backgroundTint="#FFFFFF"
+        android:fontFamily="@font/rainyhearts"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:minWidth="0dp"
+        android:minHeight="0dp"
+        android:padding="4dp"
         android:text="Random"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:fontFamily="@font/rainyhearts"
-        android:textSize="16.57sp"/>
+       />
+
+    <TextView
+        android:id="@+id/theme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/alfa_slab_one"
+        android:text="Gothic Theme"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,7 @@
 package com.example.a487_project.Activities
 
+import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,7 +17,8 @@ import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.View
 import android.widget.Button
-import android.widget.Toast
+import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.a487_project.Classes.Look
 
 
@@ -61,8 +64,12 @@ class FashionRoomActivity : AppCompatActivity() { //Kamila
         recyclerView2.setHasFixedSize(true);
         recyclerView2.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         val items = mutableListOf(
-            ClothingItemKami(4, "Red", "top1", "Top"),
-            ClothingItemKami(4, "Blue", "top2", "Top"),
+            ClothingItemKami(6, "Red", "top1", "Top"),
+            ClothingItemKami(6, "Blue", "top2", "Top"),
+            ClothingItemKami(6, "Red", "top3", "Top"),
+            ClothingItemKami(6, "Blue", "top4", "Top"),
+            ClothingItemKami(6, "Red", "top5", "Top"),
+
             // Add more items as needed
         )
 
@@ -73,12 +80,32 @@ class FashionRoomActivity : AppCompatActivity() { //Kamila
         adapter.setAdapter2(adapter2)
 
 
-        // to retrieve the selected theme information from the intent
+        // theme
         val selectedTheme = intent.getParcelableExtra<Themes>("SELECTED_THEME")
 
-        //use these
-        val themeName = selectedTheme?.name
-        val themeImgId = selectedTheme?.imgId
+
+        val themeName = selectedTheme?.name?.capitalize() + "Theme"
+        val themeTextView = findViewById<TextView>(R.id.theme)
+        themeTextView.text = themeName
+        if(selectedTheme?.name == "office"){
+            themeTextView.setTextColor(Color.BLACK)
+            val constraintLayout = findViewById<ConstraintLayout>(R.id.fashionRoomID)
+            constraintLayout.setBackgroundResource(R.drawable.office)
+        }
+        else if(selectedTheme?.name == "fantasy"){
+            themeTextView.setTextColor(Color.WHITE)
+            val constraintLayout = findViewById<ConstraintLayout>(R.id.fashionRoomID)
+            constraintLayout.setBackgroundResource(R.drawable.fantasy2)
+        }
+        else if(selectedTheme?.name == "gothic"){
+            themeTextView.setTextColor(Color.WHITE)
+            val constraintLayout = findViewById<ConstraintLayout>(R.id.fashionRoomID)
+            constraintLayout.setBackgroundResource(R.drawable.gothic2)
+        }
+
+
+
+
 
 
         //gesture
@@ -100,6 +127,17 @@ class FashionRoomActivity : AppCompatActivity() { //Kamila
         randomButton.setOnTouchListener { _, event ->
             gestureDetector.onTouchEvent(event)
             true
+        }
+
+        val goMainButton = findViewById<Button>(R.id.goMain)
+
+        // Set an OnClickListener for the button
+        goMainButton.setOnClickListener {
+            // Create an Intent to start the main activity
+            val intent = Intent(this, MainActivity::class.java)
+
+            // Start the main activity
+            startActivity(intent)
         }
     }
 
