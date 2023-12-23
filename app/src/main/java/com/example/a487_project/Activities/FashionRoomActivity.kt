@@ -1,7 +1,9 @@
 package com.example.a487_project.Activities
 
 import android.content.Intent
+import android.graphics.Bitmap
 import android.graphics.Color
+import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,7 +19,9 @@ import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.annotation.DrawableRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.a487_project.Classes.Look
 
@@ -39,7 +43,7 @@ class FashionRoomActivity : AppCompatActivity() { //Kamila
 
         recyclerView = binding.recyclerView
         // Set RecyclerView optimization
-        recyclerView.setHasFixedSize(true);
+        recyclerView.setHasFixedSize(true)
 
 
         categoryList = arrayListOf(
@@ -61,7 +65,7 @@ class FashionRoomActivity : AppCompatActivity() { //Kamila
 
         val recyclerView2: RecyclerView = findViewById(R.id.recyclerViewClothes)
         // Set RecyclerView optimization
-        recyclerView2.setHasFixedSize(true);
+        recyclerView2.setHasFixedSize(true)
         recyclerView2.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         val items = mutableListOf(
             ClothingItemKami(6, "Red", "top1", "Top"),
@@ -129,6 +133,8 @@ class FashionRoomActivity : AppCompatActivity() { //Kamila
             true
         }
 
+
+        //go to main
         val goMainButton = findViewById<Button>(R.id.goMain)
 
         // Set an OnClickListener for the button
@@ -139,11 +145,78 @@ class FashionRoomActivity : AppCompatActivity() { //Kamila
             // Start the main activity
             startActivity(intent)
         }
+
+        //submit btn
+
+
+        // When you assign a drawable to an ImageView, also set a tag with the resource name.
+
+
+        // Function to convert drawable to resource name using the tag
+        fun convertDrawableToName(imageView: ImageView): String {
+            val tag = imageView.tag
+            if (tag is String) {
+                return tag
+            }
+            throw IllegalArgumentException("Drawable resource name is not stored in the tag.")
+        }
+
+        fun getCategoryForLayer(layer: Int): String {
+           return when (layer) {
+               1 -> "Hair front"
+               2 -> "Hair back"
+               3 -> "Shoes"
+               4 -> "Dress"
+               5 -> "Bottom"
+               6 -> "Top"
+               7 -> "Accessory"
+                else -> "FUCK THIS"}
+
+        }
+
+        // Updated function to create ClothingItemKami objects
+        fun createLookFromCurrentLook(): Look {
+            var curLook = Look()
+
+            // Array of the layer ids to iterate over
+            val layerIds = arrayOf("layer1", "layer2", "layer3", "layer4", "layer5", "layer6", "layer7")
+            for (layerId in layerIds) {
+                val imageViewId = resources.getIdentifier(layerId, "id", packageName)
+                val imageView = findViewById<ImageView>(imageViewId)
+
+                // Retrieve the drawable name from the tag
+                try {
+                    val imageName = convertDrawableToName(imageView)
+                    val layer = layerId.removePrefix("layer").toInt() // Assuming layerId is like "layer1", "layer2", etc.
+                    val category = getCategoryForLayer(layer)
+
+                    // Create the ClothingItemKami object
+                    val clothingItemKami = ClothingItemKami(layer,"Default", imageName, category)
+                    curLook.lookClothings.add(clothingItemKami)
+                } catch (e: IllegalArgumentException) {
+                    // Handle the case where the drawable name could not be retrieved
+                    e.printStackTrace()
+                }
+            }
+
+            return curLook
+        }
+
+
+        var submitButton = findViewById<Button>(R.id.submitLook)
+        submitButton.setOnClickListener {
+            createLookFromCurrentLook()
+        }
+
+
+
+
+
+
     }
 
-
-
-
-
-
 }
+
+
+
+

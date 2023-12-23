@@ -50,7 +50,7 @@ class Look { // içinde tüm clothing items olacak, gösterilme ve beğenme coun
 
     fun setLookToBody(holder: View){
         for(item in lookClothings){
-            val resourceId = holder.resources.getIdentifier(
+            val resourceId1 = holder.resources.getIdentifier(
                 item.imageName, "drawable", holder.context.packageName
             )
 
@@ -60,9 +60,12 @@ class Look { // içinde tüm clothing items olacak, gösterilme ve beğenme coun
 
             )
 
-            imageView?.setImageResource(resourceId)
+            imageView?.setImageResource(resourceId1)
         }
     }
+
+
+
 
 
 

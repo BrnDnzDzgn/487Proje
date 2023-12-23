@@ -8,8 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.annotation.DrawableRes
 import androidx.recyclerview.widget.RecyclerView
 import com.example.a487_project.Classes.ClothingItemKami
+import com.example.a487_project.Classes.Look
 import com.example.a487_project.R
 
 class ClothingListAdapther(private var items: MutableList<ClothingItemKami>) :
@@ -32,6 +34,12 @@ class ClothingListAdapther(private var items: MutableList<ClothingItemKami>) :
         return ViewHolder(view)
     }
 
+    private fun setDrawable(imageView: ImageView, @DrawableRes drawableRes: Int) {
+        val drawableName = imageView.resources.getResourceEntryName(drawableRes)
+        imageView.setImageResource(drawableRes)
+        imageView.tag = drawableName // Storing the resource name in the tag for later retrieval
+    }
+
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = items[position]
 
@@ -39,10 +47,12 @@ class ClothingListAdapther(private var items: MutableList<ClothingItemKami>) :
             item.imageName, "drawable", holder.itemView.context.packageName
         )
 
+        setDrawable(holder.imageView, resourceId)
+
         // Set the image resource based on the resource identifier
         holder.imageView.setImageResource(resourceId)
 
-
+        var curLook = Look()
         holder.imageView.setOnClickListener {
             onItemClick?.invoke(position)
 
@@ -69,7 +79,6 @@ class ClothingListAdapther(private var items: MutableList<ClothingItemKami>) :
             )
 
             imageView?.setImageResource(resourceId)
-
 
         }
     }
