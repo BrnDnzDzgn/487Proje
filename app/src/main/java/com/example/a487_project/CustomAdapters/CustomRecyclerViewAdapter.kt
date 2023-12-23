@@ -48,11 +48,6 @@ class CustomRecyclerViewAdapter(private val context: Context, private val recycl
             ClothingSys.cleanClothings()
             ClothingSys.generateClothingItems(currentItem.category)
 
-            Toast.makeText(
-                context,
-                currentItem.category, // Use currentItem here
-                Toast.LENGTH_LONG
-            ).show()
 
             adapter2.updateData(ClothingSys.clothings, currentItem.category)
         }

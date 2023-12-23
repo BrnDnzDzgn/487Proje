@@ -46,9 +46,18 @@ class ClothingListAdapther(private var items: MutableList<ClothingItemKami>) :
         holder.imageView.setOnClickListener {
             onItemClick?.invoke(position)
 
-            if(item.Category == "Dress"){
+            if(item.category == "Dress"){
                 val imageViewLayer5: ImageView? = holder.itemView.rootView.findViewById(R.id.layer5)
                 imageViewLayer5?.setImageResource(android.R.color.transparent)
+
+                val imageViewLayer6: ImageView? = holder.itemView.rootView.findViewById(R.id.layer6)
+                imageViewLayer6?.setImageResource(android.R.color.transparent)
+            }
+
+            if(item.category == "Top" || item.category == "Bottom" ){
+                val imageViewLayer4: ImageView? = holder.itemView.rootView.findViewById(R.id.layer4)
+                imageViewLayer4?.setImageResource(android.R.color.transparent)
+
             }
 
             // Your custom logic for handling ImageView clicks here
@@ -56,6 +65,7 @@ class ClothingListAdapther(private var items: MutableList<ClothingItemKami>) :
             val imageViewId = "layer" + selectedItem.layer
             val imageView: ImageView? = holder.itemView.rootView.findViewById(
                 holder.itemView.resources.getIdentifier(imageViewId, "id", holder.itemView.context.packageName)
+
             )
 
             imageView?.setImageResource(resourceId)
@@ -72,7 +82,7 @@ class ClothingListAdapther(private var items: MutableList<ClothingItemKami>) :
         } else {
             // Filter items based on the category
             items.clear()
-            items.addAll(newItems.filter { it.Category == categoryFilter })
+            items.addAll(newItems.filter { it.category == categoryFilter })
         }
         notifyDataSetChanged()
     }

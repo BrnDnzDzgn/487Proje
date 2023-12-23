@@ -1,26 +1,30 @@
 package com.example.a487_project.Activities
 
 import android.os.Bundle
-import android.util.Log
-import android.widget.ImageView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.a487_project.Classes.Category
 import com.example.a487_project.Classes.ClothingItemKami
-import com.example.a487_project.Classes.ClothingSys
 import com.example.a487_project.Classes.Themes
 import com.example.a487_project.CustomAdapters.ClothingListAdapther
 import com.example.a487_project.CustomAdapters.CustomRecyclerViewAdapter
 import com.example.a487_project.R
 import com.example.a487_project.databinding.ActivityFashionRoomBinding
+import android.view.GestureDetector
+import android.view.MotionEvent
+import android.view.View
+import android.widget.Button
+import android.widget.Toast
+import com.example.a487_project.Classes.Look
+
 
 class FashionRoomActivity : AppCompatActivity() { //Kamila
     lateinit var binding: ActivityFashionRoomBinding
     lateinit var recyclerView: RecyclerView
     lateinit var adapter: CustomRecyclerViewAdapter
     lateinit var categoryList: ArrayList<Category>
+    private lateinit var gestureDetector: GestureDetector
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,10 +73,6 @@ class FashionRoomActivity : AppCompatActivity() { //Kamila
         adapter.setAdapter2(adapter2)
 
 
-
-
-
-
         // to retrieve the selected theme information from the intent
         val selectedTheme = intent.getParcelableExtra<Themes>("SELECTED_THEME")
 
@@ -81,11 +81,31 @@ class FashionRoomActivity : AppCompatActivity() { //Kamila
         val themeImgId = selectedTheme?.imgId
 
 
-        binding.goMain.setOnClickListener {
-            finish()
+        //gesture
+        val randomButton = findViewById<Button>(R.id.Random)
+
+        // Initialize the GestureDetector
+        gestureDetector = GestureDetector(this, object : GestureDetector.SimpleOnGestureListener() {
+            override fun onDoubleTap(e: MotionEvent): Boolean {
+                // Show a toast message when double-tapped
+                val myLook = Look()
+                myLook.randomizeLook()
+                val rootView = findViewById<View>(android.R.id.content)
+                myLook.setLookToBody(rootView)
+                return true
+            }
+        })
+
+        // Set an onTouchListener to the button
+        randomButton.setOnTouchListener { _, event ->
+            gestureDetector.onTouchEvent(event)
+            true
         }
-
-
-
     }
+
+
+
+
+
+
 }
