@@ -4,9 +4,8 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.a487_project.Classes.ClothingItemKami
 
-@Database(entities = [ClothingItemKami::class], version = 1, exportSchema = false)
+@Database(entities = [ClothingItemEntity::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun clothingItemDao(): ClothingItemDao
@@ -21,7 +20,8 @@ abstract class AppDatabase : RoomDatabase() {
                     context.applicationContext,
                     AppDatabase::class.java,
                     "app_database"
-                ).build()
+                ).fallbackToDestructiveMigration() // This line allows destructive migration, modify as per your needs
+                    .build()
                 INSTANCE = instance
                 instance
             }
