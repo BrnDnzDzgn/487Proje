@@ -1,16 +1,18 @@
 package com.example.a487_project.Classes //Ahmet
 import android.view.View
 import android.widget.ImageView
-import com.example.a487_project.CustomAdapters.ClothingListAdapther
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import com.example.a487_project.util.Constants
 import kotlin.random.Random
-import com.example.a487_project.Activities.FashionRoomActivity
 
-
+@Entity(tableName = Constants.TABLENAME)
 class Look { // içinde tüm clothing items olacak, gösterilme ve beğenme counteri, lookName, id is unique, theme,
     //search in the database, group by theme, sort by liked counter, try to keep the shown counter the same
 //bütün hepsi databasedes
 
-
+    @PrimaryKey
+    var id:Int = 0
     val lookClothings : ArrayList<ClothingItemKami> = ArrayList()
 
     val shownCounter: Int = 0
