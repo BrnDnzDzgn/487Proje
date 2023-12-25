@@ -4,6 +4,143 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.MakeUpRoomActivity">
+    tools:context=".Activities.MakeUpRoomActivity"
+    android:id="@+id/makeupRoomID">
+
+    <ImageView
+        android:id="@+id/bodylayer"
+        android:layout_width="2700dp"
+        android:layout_height="2700dp"
+        android:src="@android:color/transparent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/body" />
+
+    <ImageView
+        android:id="@+id/makeuplayer"
+        android:layout_width="2700dp"
+        android:layout_height="2700dp"
+        android:src="@android:color/transparent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        />
+
+    <ImageView
+        android:id="@+id/liplayer"
+        android:layout_width="2700dp"
+        android:layout_height="2700dp"
+        android:src="@android:color/transparent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/lip1"/>
+    <ImageView
+        android:id="@+id/lipdetaillayer"
+        android:layout_width="2700dp"
+        android:layout_height="2700dp"
+        android:src="@android:color/transparent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/lipdetail1"/>
+
+    <ImageView
+        android:id="@+id/eyedetaillayer"
+        android:layout_width="2700dp"
+        android:layout_height="2700dp"
+        android:src="@android:color/transparent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/eyeball1"/>
+
+    <ImageView
+        android:id="@+id/eyelayer"
+        android:layout_width="2700dp"
+        android:layout_height="2700dp"
+        android:src="@android:color/transparent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/eye1"/>
+
+    <Button
+        android:id="@+id/eyesleftbtn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="300dp"
+        android:text="Button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/eyesrightbtn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="300dp"
+        android:layout_marginEnd="24dp"
+        android:text="Button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/lipsleftbtn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="400dp"
+        android:text="Button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/lipsrightbtn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="400dp"
+        android:layout_marginEnd="24dp"
+        android:text="Button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/savefacebtnfrag"
+        android:name="com.example.a487_project.Activities.EyeFragment"
+        android:layout_width="143dp"
+        android:layout_height="92dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView2"
+        android:name="com.example.a487_project.Activities.FaceSavedFragment"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/gobackbtn"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Go to Dressing"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
