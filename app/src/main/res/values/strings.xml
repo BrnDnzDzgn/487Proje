@@ -3,4 +3,6 @@
     <string name="fashionRomm_to_main">Go Back</string>
     <string name="main_to_fashionRoom">Fashion Room</string>
     <string name="leaderBoard">Leader Board</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

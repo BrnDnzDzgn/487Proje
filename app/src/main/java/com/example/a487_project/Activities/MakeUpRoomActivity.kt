@@ -7,7 +7,7 @@ import com.example.a487_project.R
 import com.example.a487_project.databinding.ActivityMakeUpRoomBinding
 
 class MakeUpRoomActivity : FragmentActivity(), EyeFragment.EyeFragmentListener { //Ahmet
-    lateinit var binding:ActivityMakeUpRoomBinding
+    lateinit var binding: ActivityMakeUpRoomBinding
     //lateinit var bottomFragment : BottomFragment
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
