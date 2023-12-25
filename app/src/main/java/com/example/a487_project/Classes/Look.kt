@@ -13,6 +13,10 @@ class Look { // içinde tüm clothing items olacak, gösterilme ve beğenme coun
 
     val lookClothings : ArrayList<ClothingItemKami> = ArrayList()
 
+    val shownCounter: Int = 0
+    val likedCounter: Int = 0
+    val timeCounter: Int = 0
+
     fun addItem(item: ClothingItemKami) {
         lookClothings.add(item)
     }

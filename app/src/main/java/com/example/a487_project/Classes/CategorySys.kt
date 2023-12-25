@@ -17,7 +17,9 @@ object  CategorySys {
             Category("Shoes", 5),
             Category("Top", 5),
             Category("Bottom", 5),
-            Category("Face", 1) //eyes, lips, makeup
+            Category("Eyes", 5),
+            Category("Lips", 5),
+            Category("Makeup", 5),
 
         )
     }
