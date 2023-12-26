@@ -10,18 +10,7 @@
     >
 
 
-    <ImageView
-        android:id="@+id/jlayer"
-        android:layout_width="235dp"
-        android:layout_height="630dp"
-        android:src="@android:color/transparent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.06"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+
 
     <ImageView
         android:id="@+id/jlayer1"
@@ -139,6 +128,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
+
 
     <Button
         android:id="@+id/goBack"
@@ -287,7 +277,8 @@
         android:textColor="@color/white"
         android:textSize="25sp"
         tools:layout_editor_absoluteX="211dp"
-        tools:layout_editor_absoluteY="29dp" />
+        tools:layout_editor_absoluteY="29dp"
+        tools:ignore="MissingConstraints" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
