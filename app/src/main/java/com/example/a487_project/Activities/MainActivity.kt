@@ -41,8 +41,8 @@ class MainActivity : AppCompatActivity() { //Boran
             startActivity(switchActivityIntent)
         }
 
-        binding.dbbtn.setOnClickListener {
-            val intent = Intent(this, DBActivity::class.java)
+        binding.themedescbtn.setOnClickListener {
+            val intent = Intent(this, ThemeDescActivity::class.java)
             startActivity(intent)
         }
 

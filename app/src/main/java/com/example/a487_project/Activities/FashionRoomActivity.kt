@@ -51,8 +51,8 @@ class FashionRoomActivity : AppCompatActivity() { //Kamila
 
 
 
-        recipeService = ApiClient.getClient().create(ApiService::class.java) // By that reference retrofit understands which requests will be sent to server
-        var request = recipeService.getParentJSONObject()
+        /*recipeService = ApiClient.getClient().create(ApiService::class.java) // By that reference retrofit understands which requests will be sent to server
+        var request = recipeService.getParentJSONObject()*/
 
 
         // Recycle View Categories
@@ -64,6 +64,7 @@ class FashionRoomActivity : AppCompatActivity() { //Kamila
 
 
 
+        /*
         setChangedFace(DataHolder.eye, DataHolder.lip, DataHolder.makeup)
         Log.d("JSONARRAYPARSE", "Before Request")
 
@@ -79,7 +80,7 @@ class FashionRoomActivity : AppCompatActivity() { //Kamila
                     Log.d("JSONARRAYPARSE", "Parent taken from server"+parent.toString())
                 }
             }
-        })
+        })*/
 
         recyclerView = binding.recyclerView
         // Set RecyclerView optimization

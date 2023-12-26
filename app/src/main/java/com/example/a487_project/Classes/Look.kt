@@ -71,9 +71,9 @@ class Look {
         }
     }
 
-
-
-
-
+    override fun toString(): String {
+        return "Look(id=$id, lookClothings=$lookClothings, shownCounter=$shownCounter, " +
+                "likedCounter=$likedCounter, timeCounter=$timeCounter, theme='$theme')"
+    }
 
 }

@@ -15,6 +15,9 @@
         android:theme="@style/Theme._487_Project"
         tools:targetApi="31">
         <activity
+            android:name=".Activities.ThemeDescActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activities.DBActivity"
             android:exported="false" />
         <activity

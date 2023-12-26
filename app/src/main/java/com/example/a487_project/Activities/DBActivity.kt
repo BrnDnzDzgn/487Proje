@@ -38,7 +38,7 @@ class DBActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        Log.d("JSONARRAYPARSE", "Before Request")
+        /*Log.d("JSONARRAYPARSE", "Before Request")
 
         request.enqueue(object : Callback<Look> {
             override fun onFailure(call: Call<Look>, t: Throwable) {
@@ -53,7 +53,7 @@ class DBActivity : AppCompatActivity() {
                     binding.dbdisplaytv.text = look.toString()
                 }
             }
-        })
+        })*/
 
     }
 }
