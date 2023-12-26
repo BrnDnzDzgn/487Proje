@@ -8,6 +8,17 @@
     android:id="@+id/makeupRoomID">
 
     <ImageView
+        android:id="@+id/backgroundformk"
+        android:layout_width="2700dp"
+        android:layout_height="2700dp"
+        android:src="@android:color/transparent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/body" />
+
+    <ImageView
         android:id="@+id/bodylayer"
         android:layout_width="2700dp"
         android:layout_height="2700dp"
@@ -124,7 +135,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerView2"
+        android:id="@+id/facesavedtvfrag"
         android:name="com.example.a487_project.Activities.FaceSavedFragment"
         android:layout_width="300dp"
         android:layout_height="100dp"
