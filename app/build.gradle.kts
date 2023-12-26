@@ -70,4 +70,7 @@ dependencies {
 
     //cardview
     implementation ("androidx.cardview:cardview:1.0.0")
+
+    //gson
+    implementation ("com.google.code.gson:gson:2.8.6")
 }

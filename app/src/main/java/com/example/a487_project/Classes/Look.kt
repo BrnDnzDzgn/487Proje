@@ -11,6 +11,7 @@ class Look {
 
     @PrimaryKey
     var id:Int = 0
+
     val lookClothings : ArrayList<ClothingItemKami> = ArrayList()
 
     val shownCounter: Int = 0
