@@ -7,19 +7,18 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
 class Converters {
-
     @TypeConverter
-    fun fromString(value: String?): ArrayList<ClothingItemKami>? {
+    fun fromString(value: String?): MutableList<ClothingItemKami>? {
         if (value == null) {
             return null
         }
 
-        val listType = object : TypeToken<ArrayList<ClothingItemKami>>() {}.type
+        val listType = object : TypeToken<MutableList<ClothingItemKami>>() {}.type
         return Gson().fromJson(value, listType)
     }
 
     @TypeConverter
-    fun fromArrayList(list: ArrayList<ClothingItemKami>?): String? {
+    fun fromList(list: MutableList<ClothingItemKami>?): String? {
         if (list == null) {
             return null
         }

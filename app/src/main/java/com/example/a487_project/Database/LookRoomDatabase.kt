@@ -5,6 +5,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import com.example.a487_project.Classes.Look
 import com.example.a487_project.util.Constants
 
@@ -17,6 +18,7 @@ exportSchema: to have a version of history of your schema in your caode base, it
     version = 2,
     exportSchema = false
 )
+@TypeConverters(Converters::class)
 abstract class LookRoomDatabase : RoomDatabase() {
     abstract fun lookDao(): LookDAO
 

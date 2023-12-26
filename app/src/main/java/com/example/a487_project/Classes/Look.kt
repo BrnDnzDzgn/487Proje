@@ -5,6 +5,8 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.example.a487_project.util.Constants
 import kotlin.random.Random
+import java.util.List
+import java.util.ArrayList
 
 @Entity(tableName = Constants.TABLENAME)
 class Look {
@@ -12,7 +14,7 @@ class Look {
     @PrimaryKey
     var id:Int = 0
 
-    val lookClothings : ArrayList<ClothingItemKami> = ArrayList()
+    val lookClothings: MutableList<ClothingItemKami> = mutableListOf()
 
     val shownCounter: Int = 0
     val likedCounter: Int = 0
