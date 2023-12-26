@@ -108,10 +108,6 @@ class FashionRoomActivity : AppCompatActivity() { //Kamila
         }
 
 
-
-
-
-
         //gesture
         val randomButton = findViewById<Button>(R.id.Random)
 
@@ -145,6 +141,15 @@ class FashionRoomActivity : AppCompatActivity() { //Kamila
             // Start the main activity
             startActivity(intent)
         }
+
+        //go to makeup and send category
+        binding.gotoMakeupbtn.setOnClickListener {
+            val intent = Intent(this, MakeUpRoomActivity::class.java)
+            intent.putExtra("theme",selectedTheme)
+            startActivity(intent)
+        }
+
+
 
         //submit btn
 
@@ -214,6 +219,40 @@ class FashionRoomActivity : AppCompatActivity() { //Kamila
 
 
     }
+
+
+    //to change the face after coming from makeup room
+    /*fun setChangedFace(eye: Int, lip: Int, makeup: Int) {
+        when(eye){
+            1 -> {
+                binding.eyelayer.setImageResource(R.drawable.eye1)
+                binding.eyedetaillayer.setImageResource(R.drawable.eyeball1)
+            }
+            2 -> {
+                binding.eyelayer.setImageResource(R.drawable.eye2)
+                binding.eyedetaillayer.setImageResource(R.drawable.eyeball2)
+            }
+            3 -> {
+                binding.eyelayer.setImageResource(R.drawable.eye3)
+                binding.eyedetaillayer.setImageResource(R.drawable.eyeball3)
+            }
+        }
+        when(lip){
+            1 -> {
+                binding.liplayer.setImageResource(R.drawable.lip1)
+                binding.lipdetaillayer.setImageResource(R.drawable.lipdetail1)
+            }
+            2 -> {
+                binding.liplayer.setImageResource(R.drawable.lip2)
+                binding.lipdetaillayer.setImageResource(R.drawable.lipdetail2)
+            }
+            3 -> {
+                binding.liplayer.setImageResource(R.drawable.lip3)
+                binding.lipdetaillayer.setImageResource(R.drawable.lipdetail3)
+            }
+        }
+
+    }*/
 
 }
 
