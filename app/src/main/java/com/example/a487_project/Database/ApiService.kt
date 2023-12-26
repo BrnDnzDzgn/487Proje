@@ -6,7 +6,8 @@ import retrofit2.Call
 import retrofit2.http.GET
 
 interface ApiService {
-    @GET("6RER") //This string added to the base URL
+    @GET("ELLH") //This string added to the base URL
+    // https://www.jsonkeeper.com/b/ELLH go to this link to see the json
     fun getParentJSONObject(): Call<Look>
 
 }

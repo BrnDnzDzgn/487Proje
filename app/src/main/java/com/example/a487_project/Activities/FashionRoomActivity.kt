@@ -25,6 +25,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.DrawableRes
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.example.a487_project.Classes.DataHolder
 import com.example.a487_project.Classes.Look
 import com.example.a487_project.Database.ApiClient
 import com.example.a487_project.Database.ApiService
@@ -45,6 +46,11 @@ class FashionRoomActivity : AppCompatActivity() { //Kamila
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
+
+
+
+
         recipeService = ApiClient.getClient().create(ApiService::class.java) // By that reference retrofit understands which requests will be sent to server
         var request = recipeService.getParentJSONObject()
 
@@ -58,6 +64,7 @@ class FashionRoomActivity : AppCompatActivity() { //Kamila
 
 
 
+        setChangedFace(DataHolder.eye, DataHolder.lip, DataHolder.makeup)
         Log.d("JSONARRAYPARSE", "Before Request")
 
         request.enqueue(object : Callback<Look> {
@@ -122,6 +129,7 @@ class FashionRoomActivity : AppCompatActivity() { //Kamila
 
 
         val themeName = selectedTheme?.name?.capitalize() + "Theme"
+        // selectedTheme?.name = intent.getStringExtra("theme").toString()
         val themeTextView = findViewById<TextView>(R.id.theme)
         themeTextView.text = themeName
         if(selectedTheme?.name == "office"){
@@ -164,12 +172,13 @@ class FashionRoomActivity : AppCompatActivity() { //Kamila
 
 
         //go to main
-        val goMainButton = findViewById<Button>(R.id.goMain)
+        val goMainButton = findViewById<Button>(R.id.goBack)
 
         // Set an OnClickListener for the button
         goMainButton.setOnClickListener {
             // Create an Intent to start the main activity
             val intent = Intent(this, MainActivity::class.java)
+            DataHolder.look = null
 
             // Start the main activity
             startActivity(intent)
@@ -177,8 +186,13 @@ class FashionRoomActivity : AppCompatActivity() { //Kamila
 
         //go to makeup and send category
         binding.gotoMakeupbtn.setOnClickListener {
+            setChangedFace(DataHolder.eye, DataHolder.lip, DataHolder.makeup)
+
             val intent = Intent(this, MakeUpRoomActivity::class.java)
-            intent.putExtra("theme",selectedTheme)
+            var look : Look
+            look = createLookFromCurrentLook()
+            intent.putExtra("theme",selectedTheme?.name)
+            DataHolder.look = look
             startActivity(intent)
         }
 
@@ -189,56 +203,6 @@ class FashionRoomActivity : AppCompatActivity() { //Kamila
 
         // When you assign a drawable to an ImageView, also set a tag with the resource name.
 
-
-        // Function to convert drawable to resource name using the tag
-        fun convertDrawableToName(imageView: ImageView): String {
-            val tag = imageView.tag
-            if (tag is String) {
-                return tag
-            }
-            throw IllegalArgumentException("Drawable resource name is not stored in the tag.")
-        }
-
-        fun getCategoryForLayer(layer: Int): String {
-           return when (layer) {
-               1 -> "Hair front"
-               2 -> "Hair back"
-               3 -> "Shoes"
-               4 -> "Dress"
-               5 -> "Bottom"
-               6 -> "Top"
-               7 -> "Accessory"
-                else -> "FUCK THIS"}
-
-        }
-
-        // Updated function to create ClothingItemKami objects
-        fun createLookFromCurrentLook(): Look {
-            var curLook = Look()
-
-            // Array of the layer ids to iterate over
-            val layerIds = arrayOf("layer1", "layer2", "layer3", "layer4", "layer5", "layer6", "layer7")
-            for (layerId in layerIds) {
-                val imageViewId = resources.getIdentifier(layerId, "id", packageName)
-                val imageView = findViewById<ImageView>(imageViewId)
-
-                // Retrieve the drawable name from the tag
-                try {
-                    val imageName = convertDrawableToName(imageView)
-                    val layer = layerId.removePrefix("layer").toInt() // Assuming layerId is like "layer1", "layer2", etc.
-                    val category = getCategoryForLayer(layer)
-
-                    // Create the ClothingItemKami object
-                    val clothingItemKami = ClothingItemKami(layer,"Default", imageName, category)
-                    curLook.lookClothings.add(clothingItemKami)
-                } catch (e: IllegalArgumentException) {
-                    // Handle the case where the drawable name could not be retrieved
-                    e.printStackTrace()
-                }
-            }
-
-            return curLook
-        }
 
 
         var submitButton = findViewById<Button>(R.id.submitLook)
@@ -253,39 +217,92 @@ class FashionRoomActivity : AppCompatActivity() { //Kamila
 
     }
 
+    // Function to convert drawable to resource name using the tag
+    fun convertDrawableToName(imageView: ImageView): String {
+        val tag = imageView.tag
+        if (tag is String) {
+            return tag
+        }
+        throw IllegalArgumentException("Drawable resource name is not stored in the tag.")
+    }
+
+    fun getCategoryForLayer(layer: Int): String {
+        return when (layer) {
+            1 -> "Hair front"
+            2 -> "Hair back"
+            3 -> "Eyes"
+            4 -> "Lips"
+            5 -> "Makeup"
+            6 -> "Shoes"
+            7 -> "Dress"
+            8 -> "Bottom"
+            9 -> "Top"
+            10 -> "Accessory"
+            else -> "FUCK THIS"}
+
+    }
+
+    // Updated function to create ClothingItemKami objects
+    fun createLookFromCurrentLook(): Look {
+        var curLook = Look()
+
+        // Array of the layer ids to iterate over
+        val layerIds = arrayOf("layer1", "layer2", "layer3", "layer4", "layer5", "layer6", "layer7")
+        for (layerId in layerIds) {
+            val imageViewId = resources.getIdentifier(layerId, "id", packageName)
+            val imageView = findViewById<ImageView>(imageViewId)
+
+            // Retrieve the drawable name from the tag
+            try {
+                val imageName = convertDrawableToName(imageView)
+                val layer = layerId.removePrefix("layer").toInt() // Assuming layerId is like "layer1", "layer2", etc.
+                val category = getCategoryForLayer(layer)
+
+                // Create the ClothingItemKami object
+                val clothingItemKami = ClothingItemKami(layer,"Default", imageName, category)
+                curLook.lookClothings.add(clothingItemKami)
+            } catch (e: IllegalArgumentException) {
+                // Handle the case where the drawable name could not be retrieved
+                e.printStackTrace()
+            }
+        }
+
+        return curLook
+    }
+
 
     //to change the face after coming from makeup room
-    /*fun setChangedFace(eye: Int, lip: Int, makeup: Int) {
+    fun setChangedFace(eye: Int, lip: Int, makeup: Int) {
         when(eye){
             1 -> {
-                binding.eyelayer.setImageResource(R.drawable.eye1)
-                binding.eyedetaillayer.setImageResource(R.drawable.eyeball1)
+                binding.layer12.setImageResource(R.drawable.eye1)
+                binding.layer11.setImageResource(R.drawable.eyeball1)
             }
             2 -> {
-                binding.eyelayer.setImageResource(R.drawable.eye2)
-                binding.eyedetaillayer.setImageResource(R.drawable.eyeball2)
+                binding.layer12.setImageResource(R.drawable.eye2)
+                binding.layer11.setImageResource(R.drawable.eyeball2)
             }
             3 -> {
-                binding.eyelayer.setImageResource(R.drawable.eye3)
-                binding.eyedetaillayer.setImageResource(R.drawable.eyeball3)
+                binding.layer12.setImageResource(R.drawable.eye3)
+                binding.layer11.setImageResource(R.drawable.eyeball3)
             }
         }
         when(lip){
             1 -> {
-                binding.liplayer.setImageResource(R.drawable.lip1)
-                binding.lipdetaillayer.setImageResource(R.drawable.lipdetail1)
+                binding.layer9.setImageResource(R.drawable.lip1)
+                binding.layer10.setImageResource(R.drawable.lipdetail1)
             }
             2 -> {
-                binding.liplayer.setImageResource(R.drawable.lip2)
-                binding.lipdetaillayer.setImageResource(R.drawable.lipdetail2)
+                binding.layer9.setImageResource(R.drawable.lip2)
+                binding.layer10.setImageResource(R.drawable.lipdetail2)
             }
             3 -> {
-                binding.liplayer.setImageResource(R.drawable.lip3)
-                binding.lipdetaillayer.setImageResource(R.drawable.lipdetail3)
+                binding.layer9.setImageResource(R.drawable.lip3)
+                binding.layer10.setImageResource(R.drawable.lipdetail3)
             }
         }
 
-    }*/
+    }
 
 }
 

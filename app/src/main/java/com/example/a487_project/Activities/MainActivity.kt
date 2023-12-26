@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.Spinner
 import android.widget.Toast
+import com.example.a487_project.Classes.DataHolder
 import com.example.a487_project.Classes.ThemeSys
 import com.example.a487_project.Classes.Themes
 import com.example.a487_project.CustomAdapters.CustomSpinnerAdapter
@@ -22,6 +23,7 @@ class MainActivity : AppCompatActivity() { //Boran
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)

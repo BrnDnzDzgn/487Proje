@@ -18,6 +18,7 @@ class Look {
     var shownCounter: Int = 0
     var likedCounter: Int = 0
     var timeCounter: Int = 0
+    var theme: String =  "no theme"
 
     fun addItem(item: ClothingItemKami) {
         lookClothings.add(item)
