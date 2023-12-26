@@ -39,6 +39,11 @@ class MainActivity : AppCompatActivity() { //Boran
             startActivity(switchActivityIntent)
         }
 
+        binding.dbbtn.setOnClickListener {
+            val intent = Intent(this, DBActivity::class.java)
+            startActivity(intent)
+        }
+
 
         val adapter = CustomSpinnerAdapter(this, themeItems)
         spinner.setAdapter(adapter)
