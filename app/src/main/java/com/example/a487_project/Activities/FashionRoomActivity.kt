@@ -5,6 +5,7 @@ import android.graphics.Bitmap
 import android.graphics.Color
 import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -21,9 +22,15 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.annotation.DrawableRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.a487_project.Classes.Look
+import com.example.a487_project.Database.ApiClient
+import com.example.a487_project.Database.ApiService
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class FashionRoomActivity : AppCompatActivity() { //Kamila
@@ -32,14 +39,40 @@ class FashionRoomActivity : AppCompatActivity() { //Kamila
     lateinit var adapter: CustomRecyclerViewAdapter
     lateinit var categoryList: ArrayList<Category>
     private lateinit var gestureDetector: GestureDetector
+    lateinit var recipeService: ApiService
+    lateinit var look: Look
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        recipeService = ApiClient.getClient().create(ApiService::class.java) // By that reference retrofit understands which requests will be sent to server
+        var request = recipeService.getParentJSONObject()
 
 
         // Recycle View Categories
         binding=ActivityFashionRoomBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        /*val apiService = RetrofitClient.retrofit.create(ApiService::class.java)
+        val request: Call<Look> = apiService.getParentJSONObject()*/
+
+
+
+        Log.d("JSONARRAYPARSE", "Before Request")
+
+        request.enqueue(object : Callback<Look> {
+            override fun onFailure(call: Call<Look>, t: Throwable) {
+                Toast.makeText(applicationContext, t.message.toString(), Toast.LENGTH_LONG).show()
+                Log.d("JSONARRAYPARSE", "Error: "+t.message.toString())
+            }
+            override fun onResponse(call: Call<Look>, response: Response<Look>) {
+                Log.d("JSONARRAYPARSE", "Response taken"+response.body().toString())
+                if (response.isSuccessful) {
+                    look = (response.body() as Look?)!!
+                    Log.d("JSONARRAYPARSE", "Parent taken from server"+parent.toString())
+                }
+            }
+        })
 
         recyclerView = binding.recyclerView
         // Set RecyclerView optimization

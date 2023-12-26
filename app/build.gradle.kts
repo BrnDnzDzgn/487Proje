@@ -70,4 +70,14 @@ dependencies {
 
     //cardview
     implementation ("androidx.cardview:cardview:1.0.0")
+
+    //gson
+    implementation ("com.google.code.gson:gson:2.8.6")
+
+    //STEP1: Include retrofit and converter
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+
+    // Gson Converter
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation ("com.android.volley:volley:1.2.0")
 }
