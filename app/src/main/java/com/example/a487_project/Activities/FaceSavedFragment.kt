@@ -21,9 +21,7 @@ class FaceSavedFragment : Fragment() {private lateinit var binding: FragmentFace
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val args=arguments
-        var num1:Int=args!!.getInt("num1")
-        var num2:Int=Integer.parseInt(args!!.getString("num2"))
-        sum = num1 + num2
+
 
         binding.savedfacetv.text="Press Save Face Button"
     }
