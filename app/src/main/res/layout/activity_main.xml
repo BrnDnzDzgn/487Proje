@@ -39,7 +39,7 @@
         android:layout_width="181dp"
         android:layout_height="110dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="200dp"
+        android:layout_marginEnd="196dp"
         android:layout_marginBottom="23dp"
         android:background="@drawable/button_style3"
         android:fontFamily="@font/alfa_slab_one"
@@ -112,9 +112,13 @@
 
     <Button
         android:id="@+id/themedescbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
+        android:layout_width="171dp"
+        android:layout_height="110dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/button_style3"
+        android:fontFamily="@font/alfa_slab_one"
+        android:text="@string/description"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
