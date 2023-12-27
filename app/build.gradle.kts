@@ -62,11 +62,15 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
+    // for backgroundworker
+    implementation("androidx.work:work-runtime-ktx:2.7.1")
+
     // Lifecycle components
     implementation( "androidx.lifecycle:lifecycle-extensions:2.2.0")
     implementation( "androidx.lifecycle:lifecycle-common-java8:2.2.0")
     implementation( "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.2..0")
+
 
     //cardview
     implementation ("androidx.cardview:cardview:1.0.0")
