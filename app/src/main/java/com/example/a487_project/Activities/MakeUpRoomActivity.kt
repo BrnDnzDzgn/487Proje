@@ -71,13 +71,14 @@ class MakeUpRoomActivity : FragmentActivity(), EyeFragment.EyeFragmentListener {
         // go back to dressing
 
         binding.gobackbtn.setOnClickListener {
-            val intent = Intent(this, FashionRoomActivity::class.java)
+            val intent = Intent()
 
 
             intent.putExtra("eye", eyenumber)
             intent.putExtra("lip", lipnumber)
             intent.putExtra("makeup", makeupnumber)
             intent.putExtra("theme",selectedTheme)
+            setResult(RESULT_OK, intent)
             finish()
         }
 
