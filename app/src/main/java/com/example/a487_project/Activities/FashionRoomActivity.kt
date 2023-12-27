@@ -25,6 +25,10 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.DrawableRes
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.work.Data
+import androidx.work.OneTimeWorkRequest
+import androidx.work.WorkInfo
+import com.example.a487_project.Classes.CustomWorker
 import com.example.a487_project.Classes.DataHolder
 import com.example.a487_project.Classes.Look
 import com.example.a487_project.Database.ApiClient
@@ -168,8 +172,6 @@ class FashionRoomActivity : AppCompatActivity() { //Kamila
             startActivityForResult(intent, REQUEST_MAKEUP_ROOM)
         }
 
-
-
         //submit btn
 
 
@@ -181,11 +183,6 @@ class FashionRoomActivity : AppCompatActivity() { //Kamila
         submitButton.setOnClickListener {
             createLookFromCurrentLook()
         }
-
-
-
-
-
 
     }
 
