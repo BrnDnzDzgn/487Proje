@@ -1,6 +1,7 @@
 package com.example.a487_project.Activities
 
 import android.content.Intent
+import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -8,6 +9,7 @@ import android.widget.AdapterView
 import android.widget.Spinner
 import android.widget.Toast
 import com.example.a487_project.Classes.DataHolder
+import com.example.a487_project.Classes.MusicPlayer
 import com.example.a487_project.Classes.ThemeSys
 import com.example.a487_project.Classes.Themes
 import com.example.a487_project.CustomAdapters.CustomSpinnerAdapter
@@ -28,8 +30,11 @@ class MainActivity : AppCompatActivity() { //Boran
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        ThemeSys.prepare()
 
+        //initialize mediaplayer with the background music and restart it after it ends
+
+
+        ThemeSys.prepare()
         themeItems = ThemeSys.themesList
 
         spinner = findViewById<Spinner>(R.id.spinner)
@@ -39,13 +44,13 @@ class MainActivity : AppCompatActivity() { //Boran
             val switchActivityIntent = Intent(this, FashionRoomActivity::class.java)
             switchActivityIntent.putExtra("SELECTED_THEME", selectedTheme)
             startActivity(switchActivityIntent)
+            MusicPlayer.instance.start()
         }
 
         binding.themedescbtn.setOnClickListener {
             val intent = Intent(this, ThemeDescActivity::class.java)
             startActivity(intent)
         }
-
 
         val adapter = CustomSpinnerAdapter(this, themeItems)
         spinner.setAdapter(adapter)
@@ -62,6 +67,11 @@ class MainActivity : AppCompatActivity() { //Boran
                 displayToast("Nothing selected")
             }
         })
+
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
 
     }
 
