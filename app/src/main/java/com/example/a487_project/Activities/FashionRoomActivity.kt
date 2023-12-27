@@ -50,37 +50,10 @@ class FashionRoomActivity : AppCompatActivity() { //Kamila
 
 
 
-
-        /*recipeService = ApiClient.getClient().create(ApiService::class.java) // By that reference retrofit understands which requests will be sent to server
-        var request = recipeService.getParentJSONObject()*/
-
-
         // Recycle View Categories
         binding=ActivityFashionRoomBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        /*val apiService = RetrofitClient.retrofit.create(ApiService::class.java)
-        val request: Call<Look> = apiService.getParentJSONObject()*/
-
-
-
-        /*
-        setChangedFace(DataHolder.eye, DataHolder.lip, DataHolder.makeup)
-        Log.d("JSONARRAYPARSE", "Before Request")
-
-        request.enqueue(object : Callback<Look> {
-            override fun onFailure(call: Call<Look>, t: Throwable) {
-                Toast.makeText(applicationContext, t.message.toString(), Toast.LENGTH_LONG).show()
-                Log.d("JSONARRAYPARSE", "Error: "+t.message.toString())
-            }
-            override fun onResponse(call: Call<Look>, response: Response<Look>) {
-                Log.d("JSONARRAYPARSE", "Response taken"+response.body().toString())
-                if (response.isSuccessful) {
-                    look = (response.body() as Look?)!!
-                    Log.d("JSONARRAYPARSE", "Parent taken from server"+parent.toString())
-                }
-            }
-        })*/
 
         recyclerView = binding.recyclerView
         // Set RecyclerView optimization
@@ -187,14 +160,12 @@ class FashionRoomActivity : AppCompatActivity() { //Kamila
 
         //go to makeup and send category
         binding.gotoMakeupbtn.setOnClickListener {
-            setChangedFace(DataHolder.eye, DataHolder.lip, DataHolder.makeup)
-
             val intent = Intent(this, MakeUpRoomActivity::class.java)
-            var look : Look
+            /*var look : Look
             look = createLookFromCurrentLook()
+            DataHolder.look = look*/
             intent.putExtra("theme",selectedTheme?.name)
-            DataHolder.look = look
-            startActivity(intent)
+            startActivityForResult(intent, REQUEST_MAKEUP_ROOM)
         }
 
 
@@ -216,6 +187,18 @@ class FashionRoomActivity : AppCompatActivity() { //Kamila
 
 
 
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQUEST_MAKEUP_ROOM && resultCode == RESULT_OK) {
+            // Handle the result or call a function in response to the finish() in MakeUpRoomActivity
+            setChangedFace(DataHolder.eye, DataHolder.lip, DataHolder.makeup)
+        }
+    }
+
+    companion object {
+        const val REQUEST_MAKEUP_ROOM = 123 // You can use any unique request code
     }
 
     // Function to convert drawable to resource name using the tag
