@@ -25,14 +25,18 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.DrawableRes
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.lifecycle.ViewModelProvider
 import androidx.work.Data
 import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkInfo
 import com.example.a487_project.Classes.CustomWorker
 import com.example.a487_project.Classes.DataHolder
 import com.example.a487_project.Classes.Look
+import com.example.a487_project.Classes.LookDB
 import com.example.a487_project.Database.ApiClient
 import com.example.a487_project.Database.ApiService
+import com.example.a487_project.Database.LookDBViewModel
+import com.google.android.material.snackbar.Snackbar
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -46,6 +50,7 @@ class FashionRoomActivity : AppCompatActivity() { //Kamila
     private lateinit var gestureDetector: GestureDetector
     lateinit var recipeService: ApiService
     lateinit var look: Look
+    private lateinit var lookDBViewModel: LookDBViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -177,10 +182,14 @@ class FashionRoomActivity : AppCompatActivity() { //Kamila
 
         // When you assign a drawable to an ImageView, also set a tag with the resource name.
 
-
+        lookDBViewModel = ViewModelProvider(this).get(LookDBViewModel::class.java)
 
         var submitButton = findViewById<Button>(R.id.submitLook)
         submitButton.setOnClickListener {
+            var customerToAdd = LookDB(0,"no","no","no","no","no","no","no","no","no",0,0,0,"no theme")
+
+            lookDBViewModel.addLook(customerToAdd)
+            Snackbar.make(it, "Look inserted", Snackbar.LENGTH_LONG).show()
             createLookFromCurrentLook()
         }
 

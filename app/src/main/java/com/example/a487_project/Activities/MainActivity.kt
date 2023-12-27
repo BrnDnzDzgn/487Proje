@@ -27,13 +27,19 @@ import androidx.work.Data
 import androidx.work.WorkInfo
 import java.util.concurrent.TimeUnit
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.work.OneTimeWorkRequestBuilder
+import com.example.a487_project.Classes.LookDB
+import com.example.a487_project.Database.LookDBViewModel
+import java.util.Collections
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
     private lateinit var themeItems: ArrayList<Themes>
     lateinit var spinner: Spinner
     var pos = 0
+
+    private lateinit var lookDBViewModel: LookDBViewModel
 
     // for worker that plays music
     lateinit var workManager: WorkManager
@@ -44,6 +50,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.imageView2.setImageResource(R.drawable.back7)
+
+        //database
+        lookDBViewModel = ViewModelProvider(this).get(LookDBViewModel::class.java)
+        prepareData()
 
         //initialize mediaplayer with the background music and restart it after it ends
         val mNotificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
@@ -157,5 +169,14 @@ class MainActivity : AppCompatActivity() {
         val animatorSet = AnimatorSet()
         animatorSet.play(alphaAnimator)
         animatorSet.start()
+    }
+
+    fun prepareData(){
+        var customers=ArrayList<LookDB>()
+        Collections.addAll(customers,
+            LookDB(0,"no","no","no","no","no","no","no","no","no",0,0,0,"no theme")
+        )
+
+        lookDBViewModel.addLooks(customers)
     }
 }

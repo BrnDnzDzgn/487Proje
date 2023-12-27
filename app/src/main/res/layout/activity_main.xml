@@ -10,66 +10,49 @@
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="3dp"
-        android:layout_marginBottom="3dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.499"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.8"
+        app:layout_constraintTop_toTopOf="@+id/themedescbtn"
         tools:srcCompat="@drawable/back3" />
 
 
     <Button
         android:id="@+id/goFashion"
-        android:layout_width="181dp"
-        android:layout_height="110dp"
-        android:layout_marginEnd="200dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="28dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/button_style3"
         android:fontFamily="@font/alfa_slab_one"
         android:text="@string/main_to_fashionRoom"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="181dp"
-        android:layout_height="110dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="196dp"
-        android:layout_marginBottom="23dp"
-        android:background="@drawable/button_style3"
-        android:fontFamily="@font/alfa_slab_one"
-        android:text="@string/leaderBoard"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/button5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <Button
         android:id="@+id/button5"
-        android:layout_width="140dp"
-        android:layout_height="110dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="32dp"
         android:background="@drawable/button_style3"
         android:fontFamily="@font/alfa_slab_one"
         android:text="Judge"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/goFashion"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.881"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/goFashion"
+        app:layout_constraintTop_toTopOf="@+id/goFashion" />
 
     <Spinner
         android:id="@+id/spinner"
-        android:layout_width="319dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="1dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="47dp"
+        android:layout_marginEnd="47dp"
+        android:layout_marginBottom="45dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -77,48 +60,49 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="98dp"
         app:layout_constraintBottom_toTopOf="@+id/goFashion"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner"
-        app:layout_constraintVertical_bias="0.25"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginBottom="35dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginBottom="53dp"
         android:fontFamily="@font/alfa_slab_one"
         android:text="MyFashionDarling"
         android:textSize="34sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
-        app:layout_constraintStart_toStartOf="@+id/button"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintBottom_toTopOf="@+id/spinner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/themedescbtn" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="471dp"
+        android:layout_marginTop="231dp"
+        android:layout_marginBottom="351dp"
         android:fontFamily="@font/alfa_slab_one"
         android:text="Choose a theme"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/goFashion"
         app:layout_constraintStart_toStartOf="@+id/spinner"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/themedescbtn"
         android:layout_width="171dp"
-        android:layout_height="110dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="24dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="42dp"
         android:background="@drawable/button_style3"
         android:fontFamily="@font/alfa_slab_one"
         android:text="@string/description"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

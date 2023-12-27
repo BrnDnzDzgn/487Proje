@@ -86,41 +86,41 @@
 
     <Button
         android:id="@+id/eyesleftbtn"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="300dp"
-        android:text="Button"
+        android:layout_width="70dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="288dp"
+        android:text="@string/back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/eyesrightbtn"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="300dp"
-        android:layout_marginEnd="24dp"
-        android:text="Button"
+        android:layout_width="70dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="288dp"
+        android:layout_marginEnd="4dp"
+        android:text="@string/next"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/lipsleftbtn"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="70dp"
+        android:layout_height="60dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="400dp"
-        android:text="Button"
+        android:text="@string/back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/lipsrightbtn"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="70dp"
+        android:layout_height="60dp"
         android:layout_marginTop="400dp"
         android:layout_marginEnd="24dp"
-        android:text="Button"
+        android:text="@string/next"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -152,6 +152,7 @@
         android:layout_marginTop="16dp"
         android:text="Go to Dressing"
         app:layout_constraintStart_toStartOf="parent"
+
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
