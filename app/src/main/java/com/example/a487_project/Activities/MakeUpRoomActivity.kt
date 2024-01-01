@@ -48,24 +48,28 @@ class MakeUpRoomActivity : FragmentActivity(), EyeFragment.EyeFragmentListener {
                 eyenumber = maxnumber
             } else { eyenumber-- }
             setChangedFace(eyenumber, lipnumber, makeupnumber)
+            bottomFragment.updateText("Press Save Face Button to save!")
         }
         binding.eyesrightbtn.setOnClickListener{
             if(eyenumber >= maxnumber){
                 eyenumber = 1
             } else { eyenumber++ }
             setChangedFace(eyenumber, lipnumber, makeupnumber)
+            bottomFragment.updateText("Press Save Face Button to save!")
         }
         binding.lipsleftbtn.setOnClickListener{
             if(lipnumber <= 1){
                 lipnumber = maxnumber
             } else { lipnumber-- }
             setChangedFace(eyenumber, lipnumber, makeupnumber)
+            bottomFragment.updateText("Press Save Face Button to save!")
         }
         binding.lipsrightbtn.setOnClickListener{
             if(lipnumber >= maxnumber){
                 lipnumber = 1
             } else { lipnumber++ }
             setChangedFace(eyenumber, lipnumber, makeupnumber)
+            bottomFragment.updateText("Press Save Face Button to save!")
         }
 
         // go back to dressing
@@ -97,7 +101,7 @@ class MakeUpRoomActivity : FragmentActivity(), EyeFragment.EyeFragmentListener {
         DataHolder.lip = lipnumber
         DataHolder.makeup = makeupnumber
         //fashionRoomActivity.setChangedFace(DataHolder.eye, DataHolder.lip, DataHolder.makeup)
-        bottomFragment.updateText(text)
+        bottomFragment.updateText("Face is saved! You can go back to Dressing")
     }
     fun setChangedFace(eye: Int, lip: Int, makeup: Int) {
         when(eye){
